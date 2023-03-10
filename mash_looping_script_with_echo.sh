@@ -1,5 +1,7 @@
 #!/bin/bash
 
+conda activate mash
+
 for i in *fna
 do
 echo "
