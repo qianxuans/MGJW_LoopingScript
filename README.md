@@ -39,7 +39,7 @@ do
 done
 ```
 
-## The use of loop script in Mash
+## Use loop script in Mash
 In current directory, I want to iterate over all the genome files with the same command: 
 ```bash
 for i in *.fna
@@ -56,7 +56,7 @@ sort -gr $i.mash.tab > $i.mash_sorted.tab
 done
 ```
 
-Not confident about your commands?
+### Not confident about your commands?
 
 We can use echo " " to print the command first: 
 ```bash
@@ -66,3 +66,37 @@ echo "mash screen -w -p 8 RefSeqSketches.msh $i > $i.mash.tab"
 echo "sort -gr $i.mash.tab > $i.mash_sorted.tab"
 done
 ```
+Copy and paste the commands into a txt file, name it with '.sh', so system will recognize it as a shell script file. 
+
+
+And then execute it:
+```
+bash script.sh
+```
+
+## Use loop script to summarize the output of Mash
+When we have 1000 genome files analyzed by Mash and get 1000 output files, we don't want to repeat the action of opening files 1000 times. 
+
+We use loop again to help us save the time:
+
+```bash
+for i in *mash_sorted.tab
+do
+echo "$i"
+head -n 1 $i
+done > Mash_output_summary.tab
+```
+In the command above, 
+```
+echo "$i" 
+```
+tells me what is the name of the output file, and 
+```
+head -n 1 $i
+```
+tells us the content of first line of each file.
+
+```
+> Mash_output_summary.tab
+```
+concatenates the first line of each file to a file named ***Mash_output_summary.tab***
