@@ -100,3 +100,7 @@ tells us the content of first line of each file.
 > Mash_output_summary.tab
 ```
 concatenates the first line of each file to a file named ***Mash_output_summary.tab***
+
+
+## Reference
+https://github.com/marbl/Mash
