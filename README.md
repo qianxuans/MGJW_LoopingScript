@@ -74,33 +74,5 @@ And then execute it:
 bash script.sh
 ```
 
-## Use loop script to summarize the output of Mash
-When we have 1000 genome files analyzed by Mash and get 1000 output files, we don't want to repeat the action of opening files 1000 times. 
-
-We use loop again to help us save the time:
-
-```bash
-for i in *mash_sorted.tab
-do
-echo "$i"
-head -n 1 $i
-done > Mash_output_summary.tab
-```
-In the command above, 
-```
-echo "$i" 
-```
-tells me what is the name of the output file, and 
-```
-head -n 1 $i
-```
-tells us the content of first line of each file.
-
-```
-> Mash_output_summary.tab
-```
-concatenates the first line of each file to a file named ***Mash_output_summary.tab***
-
-
 ## Reference
 https://github.com/marbl/Mash
